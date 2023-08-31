@@ -1,0 +1,40 @@
+<body>
+<mat-drawer-container class="example-container">
+    <hr>
+    <mat-drawer mode="side" opened class="sidenav">
+        <mat-nav-list>
+            <div class="col-12">
+                <a class="navbar-brand fs-4" routerLink="/emh">EMH</a>
+                <hr>
+              </div>
+              <mat-divider></mat-divider>
+              <div>
+                <button mat-stroked-button color="primary" id="" routerLink="/booking/add-booking">Add Booking</button>
+            </div>
+            <div>
+                <button mat-stroked-button color="primary" routerLink="/booking/all-booking-by-id">Get All Bookings By User</button>
+            </div>
+            <br>
+            <div>
+                <button mat-stroked-button color="primary" routerLink="/booking/all-booking-by-id">Get All Bookings By User</button>
+            </div>
+            <br>
+            <div>
+                <button mat-stroked-button color="primary" routerLink="/booking/booking-details">Booking Details</button>
+            </div>
+            <br>
+            <div>
+                <button mat-stroked-button color="primary" routerLink="/booking/booking-details">Register Admin</button>
+            </div>
+            <div>
+                <button mat-stroked-button color="primary" routerLink="/booking/reactivate-user">User Account Status</button>
+            </div>
+            <div>
+                <button mat-stroked-button color="primary" (click)="logout()">Logout</button>
+            </div>
+            <br>
+        </mat-nav-list>
+    </mat-drawer>
+    <mat-drawer-content>Main content</mat-drawer-content>
+  </mat-drawer-container>
+</body>

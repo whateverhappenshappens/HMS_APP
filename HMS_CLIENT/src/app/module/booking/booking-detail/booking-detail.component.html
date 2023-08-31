@@ -1,0 +1,61 @@
+<body>
+    <main>
+        <section class="section--contact wf-section">
+            <div class="page-padding">
+                <div class="container--large w-container">
+                    <div class="contact-content__wrapper  wrapper">
+                        <div class="contact-title__wrapper left-column">
+                            <div class="contact-title">
+                                Get Booking By Id
+                            </div>
+                        </div>
+                        <div class="contact-form__wrapper right-column">
+                            <div class="contact-form form-wrapper ">
+                                <form id="email-form" [formGroup]="bookingForm ">
+                                    <div class="form-item">
+                                        <input class="form-item" type="number" formControlName="bookingId"
+                                            placeholder="Enter booking id" />
+                                        <button  type="button" (click)="fetchBookings()">Fetch Booking</button>
+                                    </div>
+                                </form>
+                                <div *ngIf="booking">
+                                <table class="booking-table">
+                                    <tr>
+                                      <th>Field</th>
+                                      <th>Value</th>
+                                    </tr>
+                                    <tr>
+                                      <td>Booking ID:</td>
+                                      <td>{{ booking.bookingId }}</td>
+                                    </tr>
+                                    <tr>
+                                      <td>Patient Name:</td>
+                                      <td>{{ booking.patientName }}</td>
+                                    </tr>
+                                    <tr>
+                                      <td>Patient Age:</td>
+                                      <td>{{ booking.patientAge }}</td>
+                                    </tr>
+                                    <tr>
+                                      <td>Doctor Name:</td>
+                                      <td>{{ booking.doctorName }}</td>
+                                    </tr>
+                                    <tr>
+                                      <td>Booking Time:</td>
+                                      <td>{{ booking.bookingTime | date: 'medium' }}</td>
+                                    </tr>
+                                    <tr>
+                                      <td>Doctor Specialization:</td>
+                                      <td>{{ booking.doctorSpecialization }}</td>
+                                    </tr>
+                                  </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+</body>
+<router-outlet></router-outlet>

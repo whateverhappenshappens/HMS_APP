@@ -1,0 +1,24 @@
+<body>
+    <div id="featureSection">
+        <div>
+            <button mat-stroked-button color="primary" id="" routerLink="/booking/add-booking">Add Booking</button>
+        </div>
+        <br>
+        <div>
+            <button mat-stroked-button color="primary" routerLink="/booking/all-booking-by-user">Get All Bookings</button>
+        </div>
+        <br>
+        <div>
+            <button mat-stroked-button color="primary" routerLink="/booking/booking-details">Booking Details</button>
+        </div>
+        <br>
+        <div>
+            <button mat-stroked-button color="primary" (click)="deactivateUserAccount()">Deactivate Account</button>
+        </div>
+        <br>
+        <div>
+            <button mat-stroked-button color="primary" (click)="logout()">Logout</button>
+        </div>
+    </div>
+</body>
+<router-outlet></router-outlet>

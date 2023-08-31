@@ -1,0 +1,38 @@
+<body>
+    <main>
+        <section class="section--contact wf-section">
+            <div class="page-padding">
+                <div class="container--large w-container">
+                    <div class="contact-content__wrapper  wrapper">
+                        <div class="contact-title__wrapper left-column">
+                            <div class="contact-title">
+                                Get Booking By Id;
+                            </div>
+                        </div>
+                        <div class="contact-form__wrapper right-column">
+                            <div class="contact-form form-wrapper ">
+                                <form id="email-form" [formGroup]="bookingForm ">
+                                    <div class="form-item">
+                                        <input class="form-field" type="number" formControlName="userId" placeholder="Enter user id" />
+                                        <button type="button" (click)="fetchBookings()">Fetch Bookings</button>
+                                    </div>
+                                    <div *ngFor="let booking of bookings$ | async" class="booking-item">
+                                        <p>Booking Id:{{booking.id}}</p>
+                                        <p>Patient Name:{{ booking.patientName }}</p>
+                                        <p>Age: {{ booking.patientAge }}</p>
+                                        <p>Gender: {{ booking.gender }}</p>
+                                        <p>Booking Time: {{ booking.bookingTime | date:'medium' }}</p>
+                                        <p>Booking Status: {{ booking.bookingStatus }}</p>
+                                        <br>
+                                      </div>
+                                    <br>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+</body>
+<router-outlet></router-outlet>

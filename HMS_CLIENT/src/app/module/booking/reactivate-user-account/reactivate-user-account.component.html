@@ -1,0 +1,14 @@
+<form id="email-form" [formGroup]="inputForm">
+    <div class="form-item">
+        <input class="form-item" type="number" formControlName="userId"
+            placeholder="Enter User Id " />
+        <button  type="button" (click)="reactivtateUser()">Reactivate User</button>
+    </div>
+</form>
+<form id="email-form" [formGroup]="blockUserInputForm">
+    <div class="form-item">
+        <input class="form-item" type="number" formControlName="userId"
+            placeholder="Enter User Id " />
+        <button  type="button" (click)="blockUserAccount()">Block User</button>
+    </div>
+</form>

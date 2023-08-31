@@ -1,0 +1,142 @@
+<body>
+    <main>
+        <section class="section--contact wf-section">
+            <div class="page-padding">
+                <div class="container--large w-container">
+                    <div class="contact-content__wrapper  wrapper">
+                        <div class="contact-title__wrapper left-column">
+                            <div class="contact-title">
+                                NEW BOOKING
+                            </div>
+                        </div>
+                        <div class="contact-form__wrapper right-column">
+                            <div class="contact-form form-wrapper ">
+                                <form id="email-form" [formGroup]="newBookingRequestForm" (ngSubmit)="createBooking()">
+                                    <div class="form-item">
+                                        <label class="form-label" for="patientName">Patient Name</label>
+                                        <input class="form-field" id="patientName" name="patientName" type="text"
+                                            placeholder="patient name" formControlName="patientName">
+                                        <div
+                                            *ngIf="newBookingRequestForm.get('patientName')?.invalid && newBookingRequestForm.get('patientName')?.touched">
+                                            <div *ngIf="newBookingRequestForm.get('patientName')?.hasError('required')">
+                                                Patient name is required
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-item">
+                                        <label class="form-label" for="patientAge">Patient Age</label>
+                                        <input class="form-field" id="age" name="patientAge" placeholder="patientAge"
+                                            formControlName="patientAge">
+                                        <div
+                                            *ngIf="newBookingRequestForm.get('patientAge')?.invalid && newBookingRequestForm.get('patientAge')?.touched">
+                                            <div *ngIf="newBookingRequestForm.get('patientAge')?.hasError('required')">
+                                                Age is required
+                                            </div>
+                                            <div
+                                                *ngIf="newBookingRequestForm.get('patientAge')?.hasError('validAgeError')">
+                                                {{
+                                                newBookingRequestForm.get('patientAge')?.errors?.['validAgeError']?.message
+                                                }}
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-item">
+                                        <label class="form-label">Gender</label>
+                                        <div>
+                                            <label class="form-label" for="genderMale">
+                                                <input id="genderMale" name="gender" type="radio" value="MALE"
+                                                    formControlName="gender"> Male
+                                            </label>
+                                            <label class="form-label" for="genderFemale">
+                                                <input id="genderFemale" name="gender" type="radio" value="FEMALE"
+                                                    formControlName="gender"> Female
+                                            </label>
+                                        </div>
+                                        <div
+                                            *ngIf="newBookingRequestForm.get('gender')?.invalid && newBookingRequestForm.get('gender')?.touched">
+                                            <div *ngIf="newBookingRequestForm.get('gender')?.hasError('required')">
+                                                Select a gender
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-item">
+                                        <label class="form-label" for="doctorSpecializationList">Choose a
+                                            specialization</label>
+                                        <select class="form-field" id="doctorSpecialization"
+                                            name="doctorSpecializationList" (change)="getDoctorsBySpecialization()"
+                                            formControlName="doctorSpecialization">
+                                            <option value="" disabled selected>Select a specialization</option>
+                                            <option *ngFor="let specialization of doctorSpecializations"
+                                                [ngValue]="specialization">{{ specialization }}</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-item">
+                                        <label class="form-label" for="doctorSelected">Choose a Doctor</label>
+                                        <select class="form-field" id="doctorSelected" name="doctorSelected"
+                                            formControlName="doctorId">
+                                            <option value="">Select a doctor</option>
+                                            <option *ngFor="let doctor of doctors" [value]="doctor.id">
+                                                {{ doctor.id }} {{doctor.doctorName }} </option>
+                                        </select>
+                                        <div
+                                            *ngIf="newBookingRequestForm.get('doctorId')?.invalid && newBookingRequestForm.get('doctorId')?.touched">
+                                            <div *ngIf="newBookingRequestForm.get('doctorId')?.hasError('required')">
+                                                Select a doctor
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-item">
+                                        <label class="form-label" for="bookingTime">Booking Time</label>
+                                        <input class="form-field" id="bookingTime" name="bookingTime" type="datetime-local"
+                                            placeholder="DD-MM-YYYY HH:MM" formControlName="bookingTime">
+                                        <div
+                                            *ngIf="newBookingRequestForm.get('bookingTime')?.invalid && newBookingRequestForm.get('bookingTime')?.touched">
+                                            <div *ngIf="newBookingRequestForm.get('bookingTime')?.hasError('required')">
+                                                Booking time is required
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <br>
+                                    <div class="form-item">
+                                        <button class="btn btn-purple" type="submit"
+                                           > Submit
+                                        </button>
+                                    </div>
+                                </form>
+                                    <div>
+                                        <div *ngIf="newBookingResponse">
+                                            <strong>Booking Successful</strong>
+                                            <table class="booking-table">
+                                                <tr>
+                                                  <th>Field</th>
+                                                  <th>Value</th>
+                                                </tr>
+                                                <tr>
+                                                  <td>Booking ID:</td>
+                                                  <td>{{ newBookingResponse.bookingId }}</td>
+                                                </tr>
+                                                <tr>
+                                                  <td>Patient Name:</td>
+                                                  <td>{{ newBookingResponse.patientName }}</td>
+                                                </tr>
+                                                <tr>
+                                                  <td>Patient Age:</td>
+                                                  <td>{{ newBookingResponse.patientAge }}</td>
+                                                </tr>
+                                                <tr>
+                                                  <td>Doctor Name:</td>
+                                                  <td>{{ newBookingResponse.doctorName }}</td>
+                                                </tr>
+                                                <tr>
+                                                  <td>Booking Time:</td>
+                                                  <td>{{ newBookingResponse.bookingTime | date: 'medium' }}</td>
+                                                </tr>
+                                                <tr>
+                                                  <td>Doctor Specialization:</td>
+                                                  <td>{{ newBookingResponse.doctorSpecialization }}</td>
+                                                </tr>
+                                              </table>
+                                            </div>
+                                    </div>
+                                <!--  [disabled]="newBookingRequestForm.invalid" -->
