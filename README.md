@@ -126,6 +126,7 @@ Having done that, check out Google for how to do that because it depends on what
 - Spring Boot
 - Node.js
 - ng-bootstrap (for UI components)
+- material ui
 - ngx-toastr (for notifications)
 
 # Workflow
