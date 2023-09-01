@@ -3,7 +3,7 @@ Doctor Appointment Booking System
 
 [![Angular](https://img.shields.io/badge/Angular-v16.2.0-blue.svg)](https://angular.io/)
 [![Spring Boot](https://img.shields.io/badge/Spring%20Boot-v3.1.1-brightgreen.svg)](https://spring.io/projects/spring-boot)
-[![Node.js](https://img.shields.io/badge/Node.js-v16.8.0-green.svg)](https://nodejs.org/)
+[![Node.js](https://img.shields.io/badge/Node.js-v18.17.1-green.svg)](https://nodejs.org/)
 [![Java](https://img.shields.io/badge/Java-v17-red.svg)](https://www.oracle.com/java/)
 
 ## Description
