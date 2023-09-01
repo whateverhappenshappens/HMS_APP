@@ -128,7 +128,8 @@ Having done that,check out Google for how to do that, because it depends on what
 - ngx-toastr (for notifications)
 
 # Workflow
-- ![image](https://github.com/whateverhappenshappens/HMS_APP/blob/main/ASSETS/BookingDetail.png)
+- ![image](https://github.com/whateverhappenshappens/HMS_APP/blob/main/ASSETS/workflow.png)
+
 
 ### Models
 - represent data as entity and relationship among them.
