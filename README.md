@@ -10,7 +10,8 @@ Doctor Appointment Booking System
 
 Welcome to the Doctor Appointment Booking System project! This application allows users to easily book and manage appointments with doctors based on their specialization. The project is built using Angular for the client side and Spring Boot for the server side.
 The user can register with an account and only admins have the right to register another admin and doctor.
-The user can log in and upon successfully signing in the user is redirected to the respective dashboard and from there on they can perform an action depending upon their role.
+After successfully logging in the user is redirected to their respective dashboards.
+Implemented role-based access control, allowing users to perform actions based on their roles.
 A rule engine has been added for easy updation and reducing code changes.
 
 ## Table of Contents
